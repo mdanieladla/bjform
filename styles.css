@@ -1,0 +1,97 @@
+/*
+hsl(217, 19%, 24%);
+form: #2f3644
+button y letras: #6c63ff
+https://github.com/TaniaSaLo/Laboratorio-SamsungDesarrolladoras.V.1.0
+*/
+:root {
+    --bckg-color: #242933;
+    /*--letters-color: #aca9ce;*/ 
+    --letters-color: #acbae0;
+    --btn-color: #6c63ff;
+}
+html { 
+    background-color: var(--bckg-color);
+    color: var(--letters-color)
+}
+
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.section-form{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    border: 1px solid var(--letters-color);
+    border-radius: 5px;
+    background-color: #2f3644;
+    width: 400px;
+    height: 500px;
+}
+
+.form {
+    width: 350px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 30px;
+}
+
+.input-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    height: 30px;
+    /* margin-bottom: 30px;*/
+} 
+
+.btn{
+    background-color: var(--btn-color);
+    border: 1px solid var(--btn-color);
+    border-radius: 2px;
+    height: 40px;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 10px;
+}
+
+h1{
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.err{
+    width: 20px;
+    height: 20px;
+    margin-right: 7px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #374669;
+    border-radius: 5px;
+    background : #fff;
+    align-items : center;
+    overflow: hidden;
+}
+
+.container .input{
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 1em;
+    padding: .3em;
+    color: inherit;
+    flex : auto 1 1;
+    width : 100%;
+    background : none;
+    background-color : transparent;
+}

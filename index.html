@@ -10,45 +10,47 @@
   <body>
     <section class="section-form">
       <h1>Create Account</h1>
-      <form class="form" action="">
+      <form class="form" action="/">
         <div class="input-div">
-          <label for="">Nombre</label>
-          <div class="container">
-            <input class="input" type="text" id="name" />
-            <img src="./images/error-icon.svg" class="err" alt="" />
-            <img src="./images/success-icon.svg" class="okay" alt="" />
+          <label for="name">Nombre</label>
+          <div>
+            <input class="input" type="text" id="name" name="name" />
           </div>
-          <span class="err-msg"></span>
+          <span class="err-msg-name"></span>
         </div>
 
         <div class="input-div">
-          <label for="">Email</label>
-          <div class="container">
-            <input class="input" type="text" id="email" />
-            <img src="./images/error-icon.svg" class="err" alt="" />
-            <img src="./images/success-icon.svg" class="okay" alt="" />
+          <label for="email">Email</label>
+          <div>
+            <input class="input" type="email" id="email" name="email" />
           </div>
-          <span class="err-msg"></span>
+          <span class="err-msg-email"></span>
         </div>
 
         <div class="input-div">
-          <label for="">Clave</label>
-          <div class="container">
-            <input class="input" type="password" id="password" />
-            <img src="./images/error-icon.svg" class="err" alt="" />
-            <img src="./images/success-icon.svg" class="okay" alt="" />
+          <label for="password">Clave</label>
+          <div>
+            <input
+              class="input"
+              type="password"
+              id="password"
+              name="password"
+            />
           </div>
-          <span class="err-msg"></span>
+          <span class="err-msg-pass"></span>
         </div>
 
         <div class="input-div">
-          <label for="">Confirme su clave</label>
-          <div class="container">
-            <input class="input" type="password" id="confirmPass" />
-            <img src="./images/error-icon.svg" class="err" alt="" />
-            <img src="./images/success-icon.svg" class="okay" alt="" />
+          <label for="confirmPass">Confirme su clave</label>
+          <div>
+            <input
+              class="input"
+              type="password"
+              id="confirmPass"
+              name="confirmPass"
+            />
           </div>
-          <span class="err-msg"></span>
+          <span class="err-msg-confirmPass"></span>
         </div>
 
         <button class="btn" type="submit">Enviar</button>

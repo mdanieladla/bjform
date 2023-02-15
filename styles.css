@@ -58,53 +58,19 @@ h1{
     margin-left: 30px;
 }
 
-.container {
-    display: flex;
-    flex-direction: row;
+.input {
     border: 1px solid #374669;
+    width: 310px;
     border-radius: 5px;
-    background : #fff;
-    align-items : center;
-    overflow: hidden;
-}
-
-.container .input{
     outline: none;
-    background: none;
     font-size: 1em;
-    padding: .3em;
-    color: inherit;
-    flex : auto 1 1;
-    width : 100%;
-    background : none;
-    border: none;
-    background-color : transparent;
-}
-/*error*/
-.err{
-    opacity: 0; 
-    height: 20px;
-    position: relative;
-    left: 20px;
 }
 
-.err-msg{
+.err-msg-name, .err-msg-email, .err-msg-pass, .err-msg-confirmPass{
     color: #fa5252;
 }
 
-.container-err {
-    border:2px solid #fa5252 ;
-} 
-/*success*/
-.okay{
-    opacity: 0; 
-    height: 20px;
-    margin-right: 7px;
-}
 
-.container-success {
-    border: 2px solid #69db7c ;
-}
 /*media queries*/
 @media all and (min-width: 768px) {
     .section-form{
@@ -116,4 +82,18 @@ h1{
         width: 350px;
         height: 450px;
     }
+}
+
+.invalid {
+    border:2px solid #fa5252 ;
+    background-image: url(./images/error-icon.svg);
+    background-repeat: no-repeat;
+    background-position: 98%;
+}
+
+.valid{
+    border:2px solid #69db7c ;
+    background-image: url(./images/success-icon.svg);
+    background-repeat: no-repeat;
+    background-position: 98%;
 }

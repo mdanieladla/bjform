@@ -1,38 +1,112 @@
 'use strict';
+
 const form = document.querySelector('.form');
+const name = document.querySelector('#name');
+const email = document.querySelector('#email');
+const pass = document.querySelector('#password');
+const confirmPass = document.querySelector('#confirmPass');
+const msgName = document.querySelector('.err-msg-name');
+const msgEmail = document.querySelector('.err-msg-email');
+const msgPass = document.querySelector('.err-msg-pass');
+const msgConfirmPass = document.querySelector('.err-msg-confirmPass');
 
-let id = (id) => document.getElementById(id);
-
-let name = id('name');
-let email = id('email');
-let password = id('password');
-let confirmPass = id('confirmPass');
-
-let classes = (classes) => document.getElementsByClassName(classes);
-let errMsg = classes('err-msg');
-let errImg = classes('err');
-let okImg = classes('okay');
-let container = classes('container');
-
-let validate = (id, classs, message) => {
-  if (id.value.trim() === '') {
-    errMsg[classs].innerHTML = message;
-    container[classs].style.border = '2px solid #fa5252';
-    errImg[classs].style.opacity = '1';
-    okImg[classs].style.opacity = '0';
+const validateName = () => {
+  const nameValue = name.value.trim();
+  const regx = /^[a-zA-Z\s]+$/;
+  if (nameValue === '') {
+    return (
+      (msgName.innerHTML = 'Debe completar su nombre'),
+      name.classList.add('invalid')
+    );
+  } else if (!regx.test(nameValue)) {
+    return (msgName.innerHTML = 'Introduzca un nombre válido');
   } else {
-    errMsg[classs].innerHTML = '';
-    container[classs].style.border = '2px solid #69db7c';
-    errImg[classs].style.opacity = '0';
-    okImg[classs].style.opacity = '1';
+    return (
+      (msgName.innerHTML = ''),
+      name.classList.remove('invalid'),
+      name.classList.add('valid')
+    );
+  }
+};
+
+const validateEmail = () => {
+  const rgx =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (email.value.trim() === '') {
+    return (
+      (msgEmail.innerHTML = 'Debe completar el email'),
+      email.classList.add('invalid')
+    );
+  } else if (!rgx.test(email.value.trim())) {
+    return (msgEmail.innerHTML = 'Email inválido');
+  } else {
+    return (
+      (msgEmail.innerHTML = ''),
+      email.classList.remove('invalid'),
+      email.classList.add('valid')
+    );
+  }
+};
+
+const validatePass = () => {
+  if (pass.value.trim() === '') {
+    return (
+      (msgPass.innerHTML = 'Debe introducir una clave'),
+      pass.classList.add('invalid')
+    );
+  } else if (pass.value.trim().length < 8) {
+    return (
+      (msgPass.innerHTML = 'La clave debe tener al menos 8 caracteres'),
+      pass.classList.add('invalid')
+    );
+  } else {
+    return (
+      (msgPass.innerHTML = ''),
+      pass.classList.remove('invalid'),
+      pass.classList.add('valid')
+    );
+  }
+};
+
+const validateConfirmedPass = () => {
+  if (confirmPass.value.trim() === '') {
+    return (
+      (msgConfirmPass.innerHTML = 'Debe confirmar su clave'),
+      confirmPass.classList.add('invalid')
+    );
+  } else if (confirmPass.value.trim() !== pass.value.trim()) {
+    return (
+      (msgConfirmPass.innerHTML = 'La clave no coincide'),
+      confirmPass.classList.add('invalid')
+    );
+  } else {
+    (msgConfirmPass.innerHTML = ''),
+      confirmPass.classList.remove('invalid'),
+      confirmPass.classList.add('valid');
   }
 };
 
 form.addEventListener('submit', (ev) => {
   ev.preventDefault();
 
-  validate(name, 0, 'Rellena este campo');
-  validate(email, 1, 'Rellena este campo');
-  validate(password, 2, 'Rellena este campo');
-  validate(confirmPass, 3, 'Rellena este campo');
+  validateName();
+  validateEmail();
+  validatePass();
+  validateConfirmedPass();
+});
+
+name.addEventListener('focusout', () => {
+  validateName();
+});
+
+email.addEventListener('focusout', () => {
+  validateEmail();
+});
+
+pass.addEventListener('focusout', () => {
+  validatePass();
+});
+
+confirmPass.addEventListener('focusout', () => {
+  validateConfirmedPass();
 });

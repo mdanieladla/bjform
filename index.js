@@ -10,6 +10,11 @@ const msgEmail = document.querySelector('.err-msg-email');
 const msgPass = document.querySelector('.err-msg-pass');
 const msgConfirmPass = document.querySelector('.err-msg-confirmPass');
 
+let validationName;
+let validationEmail;
+let validationPass;
+let valiidationPassConfirmed;
+
 const validateName = () => {
   const nameValue = name.value.trim();
   const regx = /^[a-zA-Z\s]+$/;
@@ -24,7 +29,8 @@ const validateName = () => {
     return (
       (msgName.innerHTML = ''),
       name.classList.remove('invalid'),
-      name.classList.add('valid')
+      name.classList.add('valid'),
+      (validationName = true)
     );
   }
 };
@@ -43,7 +49,8 @@ const validateEmail = () => {
     return (
       (msgEmail.innerHTML = ''),
       email.classList.remove('invalid'),
-      email.classList.add('valid')
+      email.classList.add('valid'),
+      (validationEmail = true)
     );
   }
 };
@@ -63,7 +70,8 @@ const validatePass = () => {
     return (
       (msgPass.innerHTML = ''),
       pass.classList.remove('invalid'),
-      pass.classList.add('valid')
+      pass.classList.add('valid'),
+      (validationPass = true)
     );
   }
 };
@@ -83,6 +91,7 @@ const validateConfirmedPass = () => {
     (msgConfirmPass.innerHTML = ''),
       confirmPass.classList.remove('invalid'),
       confirmPass.classList.add('valid');
+    valiidationPassConfirmed = true;
   }
 };
 
@@ -93,6 +102,17 @@ form.addEventListener('submit', (ev) => {
   validateEmail();
   validatePass();
   validateConfirmedPass();
+
+  if (
+    validationName &&
+    validationEmail &&
+    validationPass &&
+    valiidationPassConfirmed
+  ) {
+    return alert('Formulario enviado con éxito'), location.reload();
+  } else {
+    return alert('Debe rellenar los campos');
+  }
 });
 
 name.addEventListener('focusout', () => {

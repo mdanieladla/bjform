@@ -51,6 +51,7 @@ body{
     text-transform: uppercase;
     color: white;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 h1{
@@ -60,7 +61,7 @@ h1{
 
 .input {
     border: 1px solid #374669;
-    width: 310px;
+    width: 340px;
     border-radius: 5px;
     outline: none;
     font-size: 1em;
